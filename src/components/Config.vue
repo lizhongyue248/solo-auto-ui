@@ -111,6 +111,7 @@ export default class Config extends Vue {
   watchConfig (): void {
     if (this.config['deploy'] === 'solo') {
       this.config['startCommand'] = this.defaultConfig['startCommand']
+      this.validateHomeDir = this.config['homeDir'].includes('webapps')
       delete this.config['tomcatDir']
     } else {
       this.config['tomcatDir'] = this.defaultConfig['tomcatDir']
